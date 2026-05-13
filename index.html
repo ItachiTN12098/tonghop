@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <title>Portfolio - Huỳnh Minh Tiến</title>
   <meta charset="utf-8">
@@ -10,8 +10,8 @@
     /* 1. Nền & Cấu trúc cơ bản */
     body, html { 
       height: 100%; margin: 0; 
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                   url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600'); 
       background-size: cover;
       background-position: center;
@@ -20,17 +20,19 @@
       overflow-x: hidden;
     }
 
-    .navbar { background-color: rgba(0,0,0,0.8); border: none; z-index: 1000; }
+    .navbar { background-color: rgba(0,0,0,0.9); border: none; z-index: 1000; transition: 0.3s; }
+    .navbar-brand { font-weight: bold; color: #5dade2 !important; }
 
-    /* 2. HIỆU ỨNG CHUYỂN MỤC THUẦN CSS (Giống JS) */
+    /* 2. HIỆU ỨNG CHUYỂN MỤC THUẦN CSS */
     .content-section { 
-      position: absolute; /* Xếp chồng các section lên nhau */
+      position: absolute; 
       width: 100%;
       padding-top: 100px;
-      opacity: 0; /* Mặc định ẩn bằng độ trong suốt */
+      padding-bottom: 50px;
+      opacity: 0; 
       visibility: hidden;
-      transform: translateY(20px); /* Đẩy nhẹ xuống để tạo hiệu ứng trượt lên */
-      transition: all 0.6s ease; /* Thời gian chuyển đổi mượt mà */
+      transform: translateY(30px); 
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* Khi mục được chọn (Target) */
@@ -57,15 +59,20 @@
     /* 3. Thẻ Glassmorphism */
     .info-card {
       background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 15px;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 20px;
       padding: 30px;
       margin-bottom: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: 0.3s;
+    }
+    .info-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
     }
     
-    .icon-box { font-size: 35px; color: #5dade2; margin-bottom: 15px; }
+    .icon-box { font-size: 40px; color: #5dade2; margin-bottom: 15px; }
     
     .btn-view { 
       background: #337ab7; color: white; border: none; 
@@ -81,10 +88,23 @@
     }
 
     .hero-container {
-      height: 40vh; display: flex; flex-direction: column;
+      margin-bottom: 40px; display: flex; flex-direction: column;
       justify-content: center; align-items: center; text-align: center;
     }
-    .avatar-circle { width: 130px; height: 130px; border-radius: 50%; border: 3px solid #5dade2; margin-bottom: 15px; }
+
+    /* CSS CHO AVATAR TRÒN */
+    .avatar-circle { 
+      width: 160px; 
+      height: 160px; 
+      border-radius: 50%; 
+      border: 4px solid #5dade2; 
+      margin-bottom: 20px;
+      object-fit: cover; /* Giúp ảnh không bị méo */
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    }
+
+    h1 { font-weight: bold; font-size: 36px; margin-top: 0; }
+    .subtitle { font-size: 18px; color: #ccd1d1; letter-spacing: 1px; }
   </style>
 </head>
 <body>
@@ -92,24 +112,30 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#gioi-thieu" style="font-weight: bold; color: #5dade2;">PORTFOLIO</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#gioi-thieu">PORTFOLIO</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a href="#gioi-thieu">Giới Thiệu</a></li>
-      <li><a href="#bai-tap">Bài Tập</a></li>
-      <li><a href="#du-an">Dự án</a></li>
-      <li><a href="#lien-he">Liên Hệ</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="https://itachitn12098.github.io/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#gioi-thieu">Giới Thiệu</a></li>
+        <li><a href="#bai-tap">Bài Tập</a></li>
+        <li><a href="#du-an">Dự án</a></li>
+        <li><a href="#lien-he">Liên Hệ</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://itachitn12098.github.io/login/" target="_blank"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
-<!-- LƯU Ý: Thứ tự các Section quan trọng để CSS hoạt động -->
 <div id="bai-tap" class="content-section">
   <div class="container">
-    <h2 class="text-center" style="margin-bottom: 40px;">BÀI TẬP ĐÃ LÀM</h2>
+    <h2 class="text-center" style="margin-bottom: 40px; font-weight: bold;">BÀI TẬP ĐÀ LÀM</h2>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="info-card">
@@ -118,11 +144,11 @@
             <a href="https://itachitn12098.github.io/web-html-baitap1/" target="_blank" class="btn-view">XEM</a>
           </div>
           <div class="exercise-item">
-            <span><i class="fa fa-file-text-o"></i> &nbsp; Bài Tập 2: Website Music</span>
+            <span><i class="fa fa-music"></i> &nbsp; Bài Tập 2: Website Music</span>
             <a href="https://itachitn12098.github.io/web-html-baitap/" target="_blank" class="btn-view">XEM</a>
           </div>
-         <div class="exercise-item">
-            <span><i class="fa fa-file-text-o"></i> &nbsp; Bài Tập 3: Website Giới thiệu</span>
+          <div class="exercise-item">
+            <span><i class="fa fa-user"></i> &nbsp; Bài Tập 3: Website Giới thiệu</span>
             <a href="https://itachitn12098.github.io/HuynhMinhTien.html/" target="_blank" class="btn-view">XEM</a>
           </div>
         </div>
@@ -133,32 +159,37 @@
 
 <div id="du-an" class="content-section">
   <div class="container text-center">
-    <div class="info-card">
-      <i class="fa fa-rocket" style="font-size: 50px; color: #5dade2;"></i>
-      <h2>Dự án cá nhân</h2>
-      <p>Nội dung đang được cập nhật...</p>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="info-card">
+              <i class="fa fa-rocket" style="font-size: 60px; color: #5dade2; margin-bottom: 20px;"></i>
+              <h2 style="font-weight: bold;">Dự án cá nhân</h2>
+              <hr style="border-color: rgba(255,255,255,0.1);">
+              <p style="font-size: 16px;">Nội dung đang được cập nhật...</p>
+            </div>
+        </div>
     </div>
   </div>
 </div>
 
 <div id="lien-he" class="content-section">
   <div class="container">
-    <h2 class="text-center" style="margin-bottom: 40px;">LIÊN HỆ</h2>
+    <h2 class="text-center" style="margin-bottom: 40px; font-weight: bold;">LIÊN HỆ</h2>
     <div class="row">
       <div class="col-md-10 col-md-offset-1 text-center">
         <div class="info-card">
           <div class="row">
             <div class="col-sm-4">
               <div class="icon-box"><i class="fa fa-phone"></i></div>
-              <p>0987003540</p>
+              <p><strong>Điện thoại:</strong><br>0987003540</p>
             </div>
             <div class="col-sm-4">
               <div class="icon-box"><i class="fa fa-comments"></i></div>
-              <p>Discord: Windy</p>
+              <p><strong>Discord:</strong><br>Windy</p>
             </div>
             <div class="col-sm-4">
               <div class="icon-box"><i class="fa fa-envelope"></i></div>
-              <p style="font-size: 13px;">itachitn12@gmail.com</p>
+              <p><strong>Email:</strong><br><span style="font-size: 13px;">itachitn12@gmail.com</span></p>
             </div>
           </div>
         </div>
@@ -167,38 +198,41 @@
   </div>
 </div>
 
-<!-- Đặt Giới Thiệu cuối cùng để kỹ thuật CSS ~ hoạt động chuẩn -->
 <div id="gioi-thieu" class="content-section">
   <div class="hero-container">
-    <img src="https://i.postimg.cc/vHPGrndj/z7820392610523-e1b981b41114aa85f9d87be0a58d1691.jpg" class="avatar-circle"> 
+    <img src="https://i.postimg.cc/vHPGrndj/z7820392610523-e1b981b41114aa85f9d87be0a58d1691.jpg" class="avatar-circle" alt="Huỳnh Minh Tiến"> 
     <h1>Huỳnh Minh Tiến</h1>
-    <p>Sinh viên CNTT | Học hỏi thêm kinh nghiệm</p>
+    <p class="subtitle">Sinh viên CNTT | Đam mê lập trình & Sáng tạo</p>
   </div>
+  
   <div class="container">
     <div class="row">
       <div class="col-sm-4 text-center">
         <div class="info-card">
           <div class="icon-box"><i class="fa fa-id-card-o"></i></div>
-          <p>Lớp: DA24TTD</p>
-          <p>MSSV: 110124186</p>
+          <p><strong>Lớp:</strong> DA24TTD</p>
+          <p><strong>MSSV:</strong> 110124186</p>
         </div>
       </div>
       <div class="col-sm-4 text-center">
         <div class="info-card">
           <div class="icon-box"><i class="fa fa-graduation-cap"></i></div>
-          <p>Ngành CNTT</p>
-          <p>Đại học Trà Vinh</p>
+          <p><strong>Ngành:</strong> CNTT</p>
+          <p><strong>Trường:</strong> Đại học Trà Vinh</p>
         </div>
       </div>
       <div class="col-sm-4 text-center">
         <div class="info-card">
           <div class="icon-box"><i class="fa fa-map-marker"></i></div>
-          <p>Quê quán: Trà Vinh</p>
+          <p><strong>Quê quán:</strong></p>
+          <p>Trà Vinh, Việt Nam</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
